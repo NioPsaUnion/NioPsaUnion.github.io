@@ -7,11 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // Hide all sections
         sections.forEach(section => {
             section.classList.remove('active');
+            section.classList.add('unactive');
         });
 
         // Deactivate all nav links
         navLinks.forEach(link => {
             link.classList.remove('active');
+            link.classList.add('unactive');
         });
 
         // Find the target section and nav link
@@ -20,10 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Activate the target section and link
         if (targetSection) {
+            targetSection.classList.remove('unactive');
             targetSection.classList.add('active');
         }
         if (targetLink) {
             targetLink.classList.add('active');
+            targetLink.classList.remove('unactive');
         }
     };
 
