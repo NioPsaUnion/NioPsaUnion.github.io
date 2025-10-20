@@ -1,0 +1,225 @@
+:root {
+    --primary-color: #a259ff;
+    --secondary-color: #6a11cb;
+    --dark-bg: #121212;
+    --light-text: #e0e0e0;
+    --header-bg: rgba(22, 22, 22, 0.8);
+    --card-bg: rgba(30, 30, 30, 0.9);
+    --font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    background-color: #0a0a1a; /* Dark space blue */
+    background-image:
+        radial-gradient(at 15% 20%, hsla(190, 80%, 50%, 0.25) 0px, transparent 50%),
+        radial-gradient(at 80% 30%, hsla(260, 80%, 60%, 0.2) 0px, transparent 50%),
+        radial-gradient(at 30% 85%, hsla(140, 60%, 40%, 0.2) 0px, transparent 50%),
+        radial-gradient(at 75% 90%, hsla(300, 70%, 50%, 0.25) 0px, transparent 50%);
+    background-attachment: fixed;
+    color: var(--light-text);
+    overflow: hidden;
+}
+
+body::before,
+body::after {
+    content: '';
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    border-color: rgba(162, 89, 255, 0.5); /* Use primary color */
+    border-style: solid;
+    pointer-events: none;
+    z-index: 1001;
+    transition: all 0.3s ease-in-out;
+}
+
+body::before {
+    top: 20px;
+    left: 20px;
+    border-width: 2px 0 0 2px;
+}
+
+body::after {
+    bottom: 20px;
+    right: 20px;
+    border-width: 0 2px 2px 0;
+}
+
+header {
+    background-color: var(--header-bg);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 0.75rem 2rem;
+    position: fixed;
+    width: 95%;
+    max-width: 900px;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 45px;
+    margin-right: 15px;
+    border-radius: 50%;
+    padding: 0;
+    border: 2px solid var(--primary-color);
+}
+
+.logo-name {
+    font-size: 1.5em;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    color: var(--light-text);
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 400;
+    padding-bottom: 5px;
+    position: relative;
+    transition: color 0.3s;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary-color);
+    transition: width 0.3s ease-in-out;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: white;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: 100%;
+}
+
+main {
+    padding-top: 0; /* Header is now floating */
+    position: relative;
+    height: 100vh;
+}
+
+section {
+    padding: 2rem 4rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease-in-out, visibility 0s 0.6s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+section.active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.6s ease-in-out;
+}
+
+h1, h2 {
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: 3.5em;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 3em;
+    margin-bottom: 2rem;
+}
+
+p {
+    font-weight: 300;
+    font-size: 1.1em;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.card {
+    background-color: var(--card-bg);
+    backdrop-filter: blur(5px);
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    width: 300px;
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
+}
+
+.card h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    font-weight: 600;
+    font-size: 1.5em;
+}
