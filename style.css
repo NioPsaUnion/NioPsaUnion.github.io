@@ -234,8 +234,6 @@ footer {
     pointer-events: none;
 }
 
-
-/* Tablets */
 @media (max-width: 1100px) {
     body::before,
     body::after {
