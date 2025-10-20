@@ -31,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Add click event listeners to nav links
     navLinks.forEach(link => {
         link.addEventListener('click', (event) => {
             event.preventDefault(); // Prevent default anchor jump
