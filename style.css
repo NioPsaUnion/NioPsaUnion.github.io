@@ -223,3 +223,127 @@ p {
     font-weight: 600;
     font-size: 1.5em;
 }
+
+footer {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.8em;
+    font-weight: 300;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+/* --- Responsive Design --- */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    body::before,
+    body::after {
+        display: none; /* Hide frame on tablets and smaller */
+    }
+    h1 {
+        font-size: 3em;
+    }
+    h2 {
+        font-size: 2.5em;
+    }
+    .card {
+        width: 280px;
+    }
+    header {
+        padding: 0.6rem 1.5rem;
+        max-width: 800px;
+    }
+    nav ul li {
+        margin-left: 20px;
+    }
+}
+
+/* Mobile Phones */
+@media (max-width: 900px) {
+    header {
+        flex-direction: column;
+        width: 90%;
+        border-radius: 25px;
+        padding: 1rem;
+    }
+
+    .logo {
+        margin-bottom: 0.5rem;
+    }
+
+    .logo-name {
+        font-size: 1.2em;
+    }
+
+    nav ul {
+        padding-top: 0.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+    }
+
+    nav ul li a {
+        font-size: 0.9em;
+    }
+
+    section {
+        padding: 150px 1.5rem 2rem; /* Add top padding to avoid header overlap */
+    }
+
+    h1 {
+        font-size: 2.2em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-name {
+        display: none; /* Hide logo name on very small screens */
+    }
+
+    .logo img {
+        margin-right: 0;
+    }
+
+    header {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0.5rem 1rem;
+    }
+    
+    .logo {
+        margin-bottom: 0;
+    }
+
+    nav ul {
+        border-top: none;
+        padding-top: 0;
+    }
+}
