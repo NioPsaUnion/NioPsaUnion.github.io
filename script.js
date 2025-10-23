@@ -31,10 +31,19 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', (event) => {
             event.preventDefault(); // Prevent default anchor jump
             const hash = event.currentTarget.hash;
-            showSection(hash);
+            window.location.hash = hash;
         });
     });
 
-    // Show the initial section (home)
-    showSection('#home');
+    // Function to show section based on URL hash
+    const showSectionFromHash = () => {
+        const hash = window.location.hash || '#home';
+        showSection(hash);
+    };
+
+    // Show section on initial load
+    showSectionFromHash();
+
+    // Listen for hash changes
+    window.addEventListener('hashchange', showSectionFromHash);
 });
