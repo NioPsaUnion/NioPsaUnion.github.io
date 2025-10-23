@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const targetSection = document.querySelector(hash);
         const targetLink = document.querySelector(`nav ul li a[href="${hash}"]`);
 
-        // Activate the target section and link
+       
         if (targetSection) {
             targetSection.classList.add('active');
         }
