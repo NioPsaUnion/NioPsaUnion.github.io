@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     navLinks.forEach(link => {
         link.addEventListener('click', (event) => {
-            event.preventDefault(); // Prevent default anchor jump
+            event.preventDefault();
             const hash = event.currentTarget.hash;
             window.location.hash = hash;
         });
