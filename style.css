@@ -216,7 +216,7 @@ p {
 }
 
 
-.species-selector {
+.species {
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
