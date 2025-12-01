@@ -215,6 +215,76 @@ p {
     font-size: 1.5em;
 }
 
+
+.species-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.species-card {
+    position: relative;
+    width: 280px;
+    height: 380px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.species-card:hover {
+    transform: scale(1.05);
+}
+
+.triangle-selector {
+    position: absolute;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+    filter: drop-shadow(0 0 10px rgba(162, 89, 255, 0.6));
+}
+
+.triangle-selector:not(.triangle-bottom) {
+    top: -25px;
+    transform: translateX(-50%) rotate(180deg);
+    border-bottom: 30px solid var(--primary-color);
+}
+
+.triangle-selector.triangle-bottom {
+    bottom: -25px;
+    transform: translateX(-50%);
+    border-bottom: 30px solid var(--primary-color);
+}
+
+.species-card:hover .triangle-selector {
+    opacity: 1;
+}
+
+.species-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    display: block;
+}
+
+.species-card:hover img {
+    opacity: 1;
+}
+
+@media (hover: none), (pointer: coarse) {
+    .triangle-selector {
+        display: none !important;
+    }
+}
+
 footer {
     position: relative;
     text-align: center;
@@ -256,7 +326,7 @@ footer::after {
         font-size: 2.5em;
     }
     .card {
-        width: 380px;
+        width: 300px;
     }
     header {
         padding: 0.6rem 1.5rem;
@@ -264,6 +334,19 @@ footer::after {
     }
     nav ul li {
         margin-left: 20px;
+    }
+    
+    .species-card {
+        
+        background: linear-gradient(135deg,
+            rgba(10, 10, 30, 0.8) 0%,
+            rgba(40, 10, 80, 0.8) 100%);
+        background-color: rgba(10, 10, 30, 0.8);
+    }
+
+    .species-card img {
+        border: 3px solid var(--primary-color);
+        opacity: 1;
     }
 }
 
@@ -322,7 +405,7 @@ footer::after {
     }
 
     .card {
-        width: 80%;
+        width: 60%;
     }
 }
 

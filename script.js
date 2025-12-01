@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('nav ul li a');
     const sections = document.querySelectorAll('main section');
+    const characterCards = document.querySelectorAll('.character-card');
 
     // Function to switch tabs
     const showSection = (hash) => {
@@ -32,6 +33,14 @@ document.addEventListener('DOMContentLoaded', () => {
             event.preventDefault();
             const hash = event.currentTarget.hash;
             window.location.hash = hash;
+        });
+    });
+
+    // Character card click handler
+    characterCards.forEach((card, index) => {
+        card.addEventListener('click', () => {
+            const characterId = `character-${index + 1}`;
+            window.location.hash = `#${characterId}`;
         });
     });
 
