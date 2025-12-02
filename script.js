@@ -44,6 +44,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Smooth scroll for hero CTA buttons (and any .btn anchors)
+    const ctaButtons = document.querySelectorAll('.btn[href^="#"]');
+    ctaButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const href = btn.getAttribute('href');
+            if (!href) return;
+            if (href.startsWith('#')) {
+                // navigate to the section by setting the hash so tabs switch
+                e.preventDefault();
+                window.location.hash = href;
+            }
+        });
+    });
+
     // Function to show section based on URL hash
     const showSectionFromHash = () => {
         const hash = window.location.hash || '#home';
