@@ -736,3 +736,113 @@ footer::after {
         grid-template-columns: 1fr;
     }
 }
+
+/* About contacts */
+.about-contacts {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(162,89,255,0.15);
+    text-align: center;
+}
+
+.about-contacts h3 {
+    margin: 0 0 1.5rem 0;
+    color: white;
+    font-size: 1.3em;
+}
+
+.contacts-links {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, rgba(40,15,80,0.3), rgba(15,15,40,0.2));
+    border: 1px solid rgba(162,89,255,0.25);
+    padding: 12px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    color: inherit;
+}
+
+.contact-link:hover {
+    background: linear-gradient(135deg, rgba(50,20,100,0.5), rgba(20,20,50,0.3));
+    border-color: rgba(162,89,255,0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(162,89,255,0.12);
+}
+
+.contact-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 50%;
+    color: white;
+    font-weight: 700;
+    font-size: 0.9em;
+}
+
+.contact-text {
+    color: rgba(224,224,224,0.9);
+    font-weight: 500;
+}
+
+@media (max-width: 900px) {
+    .about-contacts {
+        margin-top: 2.5rem;
+        padding-top: 1.5rem;
+    }
+
+    .about-contacts h3 {
+        font-size: 1.1em;
+        margin-bottom: 1rem;
+    }
+
+    .contact-link {
+        padding: 10px 14px;
+        font-size: 0.95em;
+    }
+
+    .contact-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 0.85em;
+    }
+
+    .contact-text {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .contacts-links {
+        gap: 12px;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .contact-link {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 14px;
+    }
+
+    .about-contacts h3 {
+        font-size: 1em;
+    }
+
+    .contact-icon {
+        width: 32px;
+        height: 32px;
+    }
+}
