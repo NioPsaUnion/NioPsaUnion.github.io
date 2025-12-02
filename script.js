@@ -69,4 +69,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Listen for hash changes
     window.addEventListener('hashchange', showSectionFromHash);
+
+    // About section: expandable cards
+    const aboutClickables = document.querySelectorAll('.about-card.clickable');
+    aboutClickables.forEach(card => {
+        card.addEventListener('click', () => {
+            const target = card.getAttribute('data-expand');
+            const expandDiv = document.getElementById(target);
+            if (expandDiv) {
+                expandDiv.classList.toggle('hidden');
+                // Smooth scroll to the expanded section
+                setTimeout(() => {
+                    expandDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 50);
+            }
+        });
+    });
 });
