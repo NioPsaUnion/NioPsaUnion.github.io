@@ -84,6 +84,17 @@ header {
     letter-spacing: 1px;
 }
 
+/* Mobile nav toggle (hidden on wider screens) */
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--light-text);
+    font-size: 1.6em;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+
 nav ul {
     list-style: none;
     margin: 0;
@@ -150,7 +161,7 @@ section.active {
 .hero {
     border-radius: 12px;
     padding: 4rem 2rem 4rem;
-    background: linear-gradient(180deg, rgba(5,8,20,0.25) 0%, rgba(2,6,30,0.12) 100%);
+    background: linear-gradient(180deg, rgba(5,8,20,0.25) 0%, rgba(2,6,30,0.5) 100%);
 }
 .hero-inner {
     display: flex;
@@ -177,6 +188,20 @@ section.active {
     max-width: 40vw;
     display: block;
     filter: drop-shadow(0 10px 40px rgba(0,0,0,0.6));
+}
+
+/* Caption used on small screens: hidden by default */
+.hero-caption {
+    display: none;
+}
+.hero-caption .caption-title {
+    font-size: 10rem;
+    font-weight: 700;
+    color: white;
+}
+.hero-caption .caption-sub {
+    font-size: 3rem;
+    color: rgba(224,224,224,0.9);
 }
 
 /* Buttons */
@@ -568,7 +593,8 @@ footer::after {
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
-        padding: 0.5rem 1rem;
+        padding: 0.5rem;
+        max-width: 85%;
     }
     
     .logo {
@@ -581,7 +607,6 @@ footer::after {
     }
 }
 
-/* About section styles */
 .about-content {
     max-width: 900px;
     text-align: left;
@@ -663,13 +688,16 @@ footer::after {
     max-height: 1000px;
     overflow: hidden;
     transition: all 0.3s ease;
+    display: block;
 }
 
 .about-expand.hidden {
     max-height: 0;
     padding: 0 24px;
+    margin-bottom: 0;
     opacity: 0;
     pointer-events: none;
+    border: none;
 }
 
 .about-expand h3 {
@@ -823,7 +851,11 @@ footer::after {
         font-size: 0.9em;
     }
 }
-
+@media (max-width: 360px) {
+    header {
+        left: 48%
+    }
+}
 @media (max-width: 480px) {
     .contacts-links {
         gap: 12px;
@@ -832,7 +864,7 @@ footer::after {
     }
 
     .contact-link {
-        width: 100%;
+        width: 75%;
         justify-content: center;
         padding: 12px 14px;
     }
@@ -844,5 +876,114 @@ footer::after {
     .contact-icon {
         width: 32px;
         height: 32px;
+    }
+    
+    .hero-ctas .btn {
+        margin: 10px;
+    }
+}
+
+/* Mobile header layout for very small screens (<480px)
+   - show burger on left, logo + text to the right
+   - hide desktop nav; open nav appears as a panel when .open is added */
+@media (max-width: 480px) {
+    .nav-toggle {
+        display: inline-block;
+        order: 0;
+        margin-right: 8px;
+    }
+
+    header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0.5rem 0.8rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        max-width: none;
+    }
+
+    /* logo sits to the right of the burger */
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        order: 1;
+        flex: 0 0 auto;
+    }
+
+    .logo img {
+        height: 34px;
+        width: 34px;
+        margin-right: 6px;
+    }
+
+    .logo-name {
+        font-size: 1.05em;
+    }
+
+    /* hide regular nav on small screens */
+    nav {
+        display: none;
+    }
+
+    /* panel that appears when nav has .open */
+    nav.open {
+        display: block;
+        position: fixed;
+        left: 8px;
+        right: 8px;
+        top: calc(1rem + 56px);
+        background: linear-gradient(180deg, rgba(8,8,18,0.98), rgba(6,6,12,0.98));
+        border-radius: 12px;
+        padding: 10px;
+        z-index: 1600;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    }
+
+    nav.open ul {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin: 0;
+    }
+
+    nav.open ul li {
+        margin-left: 0;
+    }
+
+    nav.open ul li a {
+        display: block;
+        padding: 10px 12px;
+        border-radius: 8px;
+        color: var(--light-text);
+    }
+
+    nav.open ul li a:hover {
+        background: rgba(162,89,255,0.06);
+    }
+}
+
+/* On phones: hide the main hero heading and show the compact caption above the visual */
+@media (max-width: 480px) {
+    .hero h1 {
+        display: none;
+    }
+
+    .hero-caption {
+        display: block;
+        text-align: center;
+        margin-bottom: 8px;
+    }
+
+    .hero-caption .caption-title {
+        font-size: 1.15em;
+        letter-spacing: 0.5px;
+    }
+
+    .hero-caption .caption-sub {
+        font-size: 0.9em;
+        opacity: 0.95;
     }
 }
