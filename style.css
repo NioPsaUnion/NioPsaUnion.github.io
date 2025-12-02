@@ -24,7 +24,7 @@ body {
         radial-gradient(at 75% 90%, hsla(300, 70%, 50%, 0.25) 0px, transparent 50%);
     background-attachment: fixed;
     color: var(--light-text);
-    overflow: scroll;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
