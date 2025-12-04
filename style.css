@@ -363,7 +363,7 @@ p {
 }
 
 .container {
-    max-width: 1100px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -769,6 +769,14 @@ footer::after {
 }
 
 @media (max-width: 480px) {
+    .container {
+    max-width: 100%;
+    margin: 0 auto;
+
+    h1 {
+        font-size: 1.5em;
+    }
+}
     /* Contacts */
     .contacts-links{
         gap:12px;
@@ -801,10 +809,4 @@ footer::after {
     .hero-caption{display:block;text-align:center;margin-bottom:8px}
     .hero-caption .caption-title{font-size:1.15em;letter-spacing:0.5px}
     .hero-caption .caption-sub{font-size:0.9em;opacity:0.95}
-}
-
-@media (max-width: 360px) {
-    header {
-        left: 48%
-    }
 }
