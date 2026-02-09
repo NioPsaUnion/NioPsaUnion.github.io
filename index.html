@@ -3,39 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PSA Union</title>
+    <title>PSA Union — Главная</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <button id="nav-toggle" class="nav-toggle" aria-label="Открыть меню" aria-expanded="false">☰</button>
-        <div class="logo">
-            <img src="images/header/logo.svg" alt="PSA Union Logo">
-            <span class="logo-name">PSA Union</span>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#home" class="active">Главная</a></li>
-                <li><a href="#types">Виды</a></li>
-                <li><a href="#articles">Статьи</a></li>
-                <li><a href="#about">О нас</a></li>
-            </ul>
-        </nav>
-    </header>
+    <header id="header-container"></header>
 
     <main>
-        <section id="home">
+        <section id="home" class="active">
             <div class="hero">
                 <div class="hero-inner container">
                     <div class="hero-content">
                         <h1>PSA Union — Вселенная на ладони</h1>
                         <p class="lead">Исследуй миры, исследуй виды и наслаждайся!<br>Кибермилашки — все в одном месте.</p>
                         <div class="hero-ctas">
-                            <a class="btn primary" href="#types">Выбрать вид!</a>
-                            <a class="btn ghost" href="#articles">Исследовать статьи</a>
+                            <a class="btn primary" href="types.html">Выбрать вид!</a>
+                            <a class="btn ghost" href="articles.html">Исследовать статьи</a>
                         </div>
                     </div>
                     <div class="hero-visual">
@@ -50,112 +36,11 @@
                 </div>
             </div>
         </section>
-
-        <section id="types">
-            <div class="container">
-                <h2>Виды</h2>
-                <div class="species">
-                    <div class="species-card">
-                        <div class="triangle-selector"></div>
-                        <a href="#species-1"><img src="images/types/2.png" alt="Персонаж 2"></a>
-                        <div class="triangle-selector triangle-bottom"></div>
-                    </div>
-                    <div class="species-card">
-                        <div class="triangle-selector"></div>
-                        <a href="#species-2"><img src="images/types/2.png" alt="Персонаж 2"></a>
-                        <div class="triangle-selector triangle-bottom"></div>
-                    </div>
-                    <div class="species-card">
-                        <div class="triangle-selector"></div>
-                        <a href="#species-3"><img src="images/types/2.png" alt="Персонаж 2"></a>
-                        <div class="triangle-selector triangle-bottom"></div>
-                    </div>
-                    <div class="species-card">
-                        <div class="triangle-selector"></div>
-                        <a href="#species-4"><img src="images/types/2.png" alt="Персонаж 2"></a>
-                        <div class="triangle-selector triangle-bottom"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="articles">
-            <div class="container">
-                <div class="articles-header">
-                    <h2>Статьи</h2>
-                    <p class="articles-lead">Короткие заметки, визуальные дайджесты и обзоры миров — выбери, что читать.</p>
-                </div>
-                <div class="articles-grid">
-                    <a class="article-card" href="/articles/stickers" aria-label="Стикеры с разными видами">
-                        <img src="" alt="Стикеры">
-                        <div class="article-meta">
-                            <span class="tag">Стикеры</span>
-                            <h3>Стикеры с разными видами в Телеграм!</h3>
-                        </div>
-                    </a>
-                    <a class="article-card" href="/articles/suiters-rf" aria-label="Коллекция СНГ сьютеров">
-                        <img src="" alt="Сьютеры РФ">
-                        <div class="article-meta">
-                            <span class="tag">Сьютеры</span>
-                            <h3>Коллекция СНГ сьютеров</h3>
-                        </div>
-                    </a>
-                    <a class="article-card" href="/articles/members" aria-label="Личные сайты участников">
-                        <img src="" alt="Участники">
-                        <div class="article-meta">
-                            <span class="tag">Участники</span>
-                            <h3>Личные сайты</h3>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section id="about">
-            <div class="container about-content">
-                <h2>О нас</h2>
-                <div class="about-intro">
-                    <p>PSA Union — это активное сообщество энтузиастов, исследующих глубины космоса, творчества и воображения. Мы создаём, делимся знаниями и строим миры вместе.</p>
-                    <p>Наше движение началось с простой идеи: собрать людей, которых вдохновляет космос и его возможности. Сегодня мы — многообразная команда художников, писателей, разработчиков и мечтателей.</p>
-                </div>
-
-                <div class="about-cards">
-                    <a href="/history" class="about-card">
-                        <div class="card-icon">📖</div>
-                        <h3>История группы</h3>
-                        <p>От истоков до наших дней — узнай, как всё начиналось.</p>
-                        <span class="card-arrow">→</span>
-                    </a>
-                    <a href="/administration" class="about-card">
-                        <div class="card-icon">👥</div>
-                        <h3>Администраторы</h3>
-                        <p>Познакомься с людьми, которые ведут движение.</p>
-                        <span class="card-arrow">→</span>
-                    </a>
-                </div>
-
-                <div class="about-contacts">
-                    <h3>Где нас найти</h3>
-                    <div class="contacts-links">
-                        <a href="https://vk.com/psa_union" target="_blank" rel="noopener noreferrer" class="contact-link">
-                            <img class="contact-icon" src="images/about/vk.svg"></img>
-                            <span class="contact-text">VKontakte</span>
-                        </a>
-                        <a href="https://t.me/psa_union" target="_blank" rel="noopener noreferrer" class="contact-link">
-                            <img class="contact-icon" src="images/about/tg.svg"></img>
-                            <span class="contact-text">Telegram</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
-    <footer>
-        PSA Union 2023-2025
-    </footer>
+    <footer id="footer-container"></footer>
 
-    <script src="script.js"></script>
-    <script src="burger.js"></script>
+    <script src="scripts/burger.js"></script>
+    <script src="scripts/componentLoader.js"></script>
 </body>
 </html>

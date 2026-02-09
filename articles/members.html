@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Личные сайты - PSA Union</title>
+    <title>PSA Union</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -18,17 +18,19 @@
         </div>
         <nav>
             <ul>
-                <li><a href="/#home">Главная</a></li>
-                <li><a href="/#types">Виды</a></li>
-                <li><a href="/#articles">Статьи</a></li>
-                <li><a href="/#about">О нас</a></li>
+                <li><a href="../index.html">Главная</a></li>
+                <li><a href="../types.html">Виды</a></li>
+                <li><a href="../articles.html">Статьи</a></li>
+                <li><a href="../about.html">О нас</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section class="container active">
-            <div id="article-content"></div>
+            <div id="article-content">
+                <!-- Содержимое статьи будет загружено сюда скриптом -->
+            </div>
         </section>
     </main>
 
@@ -39,135 +41,6 @@
     </footer>
 
     <script src="../burger.js"></script>
-    <script>
-        // Load article content from markdown
-        async function loadArticle() {
-            try {
-                const response = await fetch('../articles/members.md');
-                if (!response.ok) throw new Error('Failed to load article');
-                
-                const markdown = await response.text();
-                const html = parseMarkdown(markdown);
-                renderArticle(html, 'members');
-            } catch (error) {
-                console.error('Error loading article:', error);
-                document.getElementById('article-content').innerHTML = 
-                    '<p>Ошибка при загрузке статьи.</p>';
-            }
-        }
-
-        function parseMarkdown(markdown) {
-            let html = markdown;
-
-            // Headers (must be done before other replacements)
-            html = html.replace(/^### (.*?)$/gm, '<h3>$1</h3>');
-            html = html.replace(/^## (.*?)$/gm, '<h2>$1</h2>');
-            html = html.replace(/^# (.*?)$/gm, '<h1>$1</h1>');
-
-            // Bold (before italic to avoid conflicts)
-            html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-
-            // Italic
-            html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
-
-            // Links
-            html = html.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
-
-            // Unordered lists - wrap consecutive list items
-            html = html.replace(/^\- (.*?)$/gm, '<li>$1</li>');
-            html = html.replace(/(<li>.*?<\/li>)/s, function(match) {
-                return '<ul>' + match + '</ul>';
-            });
-            // Clean up nested ul tags
-            html = html.replace(/<\/ul>\n<ul>/g, '');
-
-            // Ordered lists
-            html = html.replace(/^\d+\. (.*?)$/gm, '<li>$1</li>');
-
-            // Paragraph wrapping - wrap text in <p> tags
-            const lines = html.split('\n');
-            let result = [];
-            let inBlock = false;
-            
-            for (let line of lines) {
-                if (line.match(/^<[h|u|o|l|d]/)) {
-                    // This is a block element
-                    if (inBlock) {
-                        result[result.length - 1] += '</p>';
-                        inBlock = false;
-                    }
-                    result.push(line);
-                } else if (line.trim() === '') {
-                    // Empty line
-                    if (inBlock) {
-                        result[result.length - 1] += '</p>';
-                        inBlock = false;
-                    }
-                } else {
-                    // Regular text
-                    if (!inBlock) {
-                        result.push('<p>' + line);
-                        inBlock = true;
-                    } else {
-                        result[result.length - 1] += '\n' + line;
-                    }
-                }
-            }
-            
-            if (inBlock) {
-                result[result.length - 1] += '</p>';
-            }
-            
-            html = result.join('\n');
-
-            return html;
-        }
-
-        function renderArticle(content, articleId) {
-            const container = document.getElementById('article-content');
-            if (!container) return;
-
-            // Extract title from first h1
-            const titleMatch = content.match(/<h1>(.*?)<\/h1>/);
-            const title = titleMatch ? titleMatch[1] : articleId;
-            
-            // Remove h1 from content to avoid duplication
-            let bodyContent = content.replace(/<h1>.*?<\/h1>/, '').trim();
-
-            // Create article structure
-            const article = document.createElement('div');
-            article.className = 'article-page';
-
-            // Category/Tag
-            const categoryMap = {
-                'stickers': 'Стикеры',
-                'suiters-rf': 'Сьютеры',
-                'members': 'Участники'
-            };
-            const category = categoryMap[articleId] || 'Статья';
-
-            // Header
-            const header = document.createElement('div');
-            header.className = 'article-header';
-            header.innerHTML = `
-                <h1>${title}</h1>
-                <span class="article-category">${category}</span>
-            `;
-
-            // Body
-            const body = document.createElement('div');
-            body.className = 'article-body';
-            body.innerHTML = bodyContent;
-
-            article.appendChild(header);
-            article.appendChild(body);
-
-            container.innerHTML = '';
-            container.appendChild(article);
-        }
-
-        // Load article on page load
-        document.addEventListener('DOMContentLoaded', loadArticle);
-    </script>
+    <script src="../articleLoader.js"></script>
 </body>
 </html>

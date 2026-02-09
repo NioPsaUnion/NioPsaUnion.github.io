@@ -7,24 +7,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <header>
-        <button id="nav-toggle" class="nav-toggle" aria-label="Открыть меню" aria-expanded="false">☰</button>
-        <div class="logo">
-            <img src="images/header/logo.svg" alt="PSA Union Logo">
-            <span class="logo-name">PSA Union</span>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="/#home">Главная</a></li>
-                <li><a href="/#types">Виды</a></li>
-                <li><a href="/#articles">Статьи</a></li>
-                <li><a href="/#about" class="active">О нас</a></li>
-            </ul>
-        </nav>
-    </header>
+    <header id="header-container"></header>
 
     <main>
         <section id="admins-page" class="active">
@@ -58,9 +44,8 @@
         </section>
     </main>
 
-    <footer>
-        PSA Union 2023-2025
-    </footer>
-    <script src="burger.js"></script>
+    <footer id="footer-container"></footer>
+    <script src="../scripts/burger.js"></script>
+    <script src="../scripts/componentLoader.js"></script>
 </body>
 </html>

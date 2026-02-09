@@ -145,16 +145,12 @@ main {
 section {
     padding: 2rem 4rem;
     padding-top: 10rem;
-    display: none;
+    display: flex; /* Секции будут всегда отображаться */
     justify-content: center;
     align-items: center;
     text-align: center;
     flex-direction: column;
     box-sizing: border-box;
-}
-
-section.active {
-    display: flex;
 }
 
 /* Hero banner */
@@ -358,7 +354,6 @@ h2 {
 p {
     font-weight: 300;
     font-size: 1.1em;
-    max-width: 600px;
     line-height: 1.6;
 }
 
@@ -438,14 +433,258 @@ p {
     }
 }
 
+/* Merch Styles */
+.merch-content {
+    padding: 2rem 0;
+}
+
+.merch-content h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.merch-intro {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.merch-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 3rem;
+}
+
+.merch-card {
+    position: relative;
+    width: 280px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.merch-card:hover {
+    transform: scale(1.05);
+}
+
+.merch-image {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 320px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.merch-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    display: block;
+}
+
+.merch-card:hover img {
+    opacity: 1;
+}
+
+.merch-card .triangle-selector {
+    position: absolute;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+    filter: drop-shadow(0 0 10px rgba(162, 89, 255, 0.6));
+}
+
+.merch-card .triangle-selector:not(.triangle-bottom) {
+    top: -25px;
+    transform: translateX(-50%) rotate(180deg);
+    border-bottom: 30px solid var(--primary-color);
+}
+
+.merch-card .triangle-selector.triangle-bottom {
+    bottom: -25px;
+    transform: translateX(-50%);
+    border-bottom: 30px solid var(--primary-color);
+}
+
+.merch-card:hover .triangle-selector {
+    opacity: 1;
+}
+
+.merch-info {
+    padding: 1.5rem 1rem;
+    text-align: center;
+}
+
+.merch-info h3 {
+    font-size: 1.3rem;
+    margin: 0 0 0.5rem 0;
+    color: var(--light-text);
+}
+
+.merch-description {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin: 0 0 1rem 0;
+    line-height: 1.5;
+}
+
+.merch-price {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin: 0;
+}
+
+.merch-cta {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.merch-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--light-text);
+}
+
+.merch-cta p {
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+}
+
+.merch-cta .btn {
+    margin: 0.5rem;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(3px);
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    margin: 5% auto;
+    padding: 2rem;
+    max-width: 600px;
+    border-radius: 15px;
+    border: 1px solid rgba(162, 89, 255, 0.3);
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal-content h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+}
+
+.modal-content h3 {
+    color: var(--light-text);
+    margin-top: 1.5rem;
+}
+
+.modal-close {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--light-text);
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: var(--primary-color);
+}
+
+.delivery-list,
+.price-factors,
+.contact-methods {
+    list-style: none;
+    padding: 0;
+}
+
+.delivery-list li,
+.price-factors li,
+.contact-methods li {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background-color: rgba(162, 89, 255, 0.1);
+    border-radius: 8px;
+    border-left: 3px solid var(--primary-color);
+    text-align: left;
+}
+
+.delivery-list strong {
+    color: var(--primary-color);
+}
+
+.contact-methods a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-methods a:hover {
+    text-decoration: underline;
+}
+
+.delivery-note {
+    font-style: italic;
+    opacity: 0.8;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(162, 89, 255, 0.2);
+}
+
 footer {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 1rem;
+    padding: 1.5rem 1rem;
     background-color: transparent;
     color: var(--light-text);
     font-size: 0.9em;
     backdrop-filter: blur(10px);
+}
+
+footer .container {
+    width: 100%;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
 }
 
 footer::after {
@@ -551,6 +790,30 @@ footer::after {
 
     p {
         font-size: 1em;
+    }
+
+    /* Merch Tablet Styles */
+    .merch-grid {
+        gap: 30px;
+    }
+
+    .merch-card {
+        width: calc(50% - 15px);
+        max-width: 300px;
+    }
+
+    .merch-image {
+        height: 280px;
+    }
+
+    .merch-cta {
+        padding: 1.8rem;
+    }
+
+    /* Modal Tablet Styles */
+    .modal-content {
+        margin: 10% auto;
+        max-width: 500px;
     }
 
 }
@@ -979,5 +1242,303 @@ footer::after {
     .back-link {
         padding: 0.6rem 1rem;
         font-size: 0.95rem;
+    }
+
+    /* Merch Mobile Styles */
+    .merch-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .merch-intro {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .merch-grid {
+        gap: 25px;
+    }
+
+    .merch-card {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .merch-image {
+        height: 250px;
+    }
+
+    .merch-info h3 {
+        font-size: 1.1rem;
+    }
+
+    .merch-cta {
+        padding: 1.5rem;
+    }
+
+    .merch-cta h3 {
+        font-size: 1.3rem;
+    }
+
+    /* Modal Mobile Styles */
+    .modal-content {
+        margin: 20% auto;
+        max-width: 90%;
+        padding: 1.5rem;
+    }
+
+    .modal-close {
+        right: 15px;
+        top: 5px;
+        font-size: 1.5rem;
+    }
+
+    .delivery-list li,
+    .price-factors li,
+    .contact-methods li {
+        padding: 0.8rem;
+        margin: 1rem 0;
+    }
+
+    footer {
+        padding: 1rem;
+        font-size: 0.85em;
+    }
+
+    footer::after {
+        width: 40px;
+        height: 40px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .merch-content h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .merch-intro {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .merch-grid {
+        gap: 20px;
+        padding: 0 1rem;
+    }
+
+    .merch-card {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .merch-image {
+        height: 200px;
+    }
+
+    .merch-card img {
+        border-radius: 8px;
+    }
+
+    .merch-info {
+        padding: 1rem 0.8rem;
+    }
+
+    .merch-info h3 {
+        font-size: 1rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .merch-description {
+        font-size: 0.85rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .merch-price {
+        font-size: 1rem;
+    }
+
+    .merch-cta {
+        padding: 1.2rem;
+        margin: 1.5rem 1rem;
+    }
+
+    .merch-cta h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .merch-cta p {
+        font-size: 0.9rem;
+    }
+
+    .merch-cta .btn {
+        display: block;
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    /* Modal Mobile Styles */
+    .modal-content {
+        margin: 30% auto;
+        max-width: 95%;
+        padding: 1.2rem;
+        border-radius: 12px;
+    }
+
+    .modal-content h2 {
+        font-size: 1.3rem;
+        margin-top: 0.5rem;
+    }
+
+    .modal-content h3 {
+        font-size: 1.1rem;
+        margin: 1.2rem 0 0.8rem 0;
+    }
+
+    .modal-close {
+        right: 12px;
+        top: 2px;
+        font-size: 1.8rem;
+    }
+
+    .delivery-list,
+    .price-factors,
+    .contact-methods {
+        padding-left: 0;
+    }
+
+    .delivery-list li,
+    .price-factors li,
+    .contact-methods li {
+        padding: 0.8rem;
+        margin: 0.8rem 0;
+        font-size: 0.9rem;
+    }
+
+    .delivery-list strong {
+        display: block;
+        margin-bottom: 0.3rem;
+    }
+
+    .delivery-note {
+        font-size: 0.9rem;
+        margin-top: 1rem;
+    }
+
+    footer {
+        padding: 1rem 0.5rem;
+        font-size: 0.8em;
+    }
+
+    footer::after {
+        width: 35px;
+        height: 35px;
+        bottom: 10px;
+        right: 10px;
+        border-width: 0 1.5px 1.5px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .merch-content h2 {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .merch-intro {
+        font-size: 0.9rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .merch-grid {
+        gap: 15px;
+        padding: 0 0.5rem;
+    }
+
+    .merch-image {
+        height: 180px;
+    }
+
+    .merch-info {
+        padding: 0.8rem 0.6rem;
+    }
+
+    .merch-info h3 {
+        font-size: 0.95rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .merch-description {
+        font-size: 0.8rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .merch-price {
+        font-size: 0.95rem;
+    }
+
+    .merch-cta {
+        padding: 1rem;
+        margin: 1.2rem 0.5rem;
+        border-radius: 8px;
+    }
+
+    .merch-cta h3 {
+        font-size: 1rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .merch-cta p {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Modal Extra Small Screens */
+    .modal-content {
+        margin: 40% auto;
+        max-width: 100%;
+        left: 5px;
+        right: 5px;
+        padding: 1rem;
+    }
+
+    .modal-content h2 {
+        font-size: 1.2rem;
+    }
+
+    .modal-content h3 {
+        font-size: 1rem;
+        margin: 1rem 0 0.6rem 0;
+    }
+
+    .modal-close {
+        right: 10px;
+        top: 0;
+        font-size: 1.5rem;
+    }
+
+    .delivery-list li,
+    .price-factors li,
+    .contact-methods li {
+        padding: 0.6rem;
+        margin: 0.6rem 0;
+        font-size: 0.85rem;
+        border-radius: 4px;
+    }
+
+    .delivery-note {
+        font-size: 0.85rem;
+        margin-top: 0.8rem;
+        padding-top: 0.8rem;
+    }
+
+    header .nav-toggle {
+        display: block;
+    }
+
+    footer p {
+        font-size: 0.75rem;
     }
 }

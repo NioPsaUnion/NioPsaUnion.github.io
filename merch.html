@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSA Union — Мерч</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="header-container"></header>
+
+    <main>
+        <section id="merch" class="active">
+            <div class="container merch-content">
+                <h2>Мерч PSA Union</h2>
+                <p class="merch-intro">Поддержи наше сообщество! У нас есть уникальный мерч с символикой PSA Union. Цены варьируются в зависимости от количества заказа и доставки.</p>
+                
+                <div class="merch-grid">
+                    <div class="merch-card">
+                        <div class="triangle-selector"></div>
+                        <a href="#" class="merch-image">
+                            <img src="images/merch/tshirt.png" alt="Футболка">
+                        </a>
+                        <div class="triangle-selector triangle-bottom"></div>
+                        <div class="merch-info">
+                            <h3>Футболка</h3>
+                            <p class="merch-description">Удобная хлопковая футболка с фирменным логотипом PSA Union</p>
+                            <p class="merch-price">от 500 ₽*</p>
+                        </div>
+                    </div>
+
+                    <div class="merch-card">
+                        <div class="triangle-selector"></div>
+                        <a href="#" class="merch-image">
+                            <img src="images/merch/cap.png" alt="Кепка">
+                        </a>
+                        <div class="triangle-selector triangle-bottom"></div>
+                        <div class="merch-info">
+                            <h3>Кепка</h3>
+                            <p class="merch-description">Стильная кепка с вышитым логотипом</p>
+                            <p class="merch-price">от 400 ₽*</p>
+                        </div>
+                    </div>
+
+                    <div class="merch-card">
+                        <div class="triangle-selector"></div>
+                        <a href="#" class="merch-image">
+                            <img src="images/merch/backpack.png" alt="Рюкзак">
+                        </a>
+                        <div class="triangle-selector triangle-bottom"></div>
+                        <div class="merch-info">
+                            <h3>Рюкзак</h3>
+                            <p class="merch-description">Вместительный рюкзак для повседневного использования</p>
+                            <p class="merch-price">от 1200 ₽*</p>
+                        </div>
+                    </div>
+
+                    <div class="merch-card">
+                        <div class="triangle-selector"></div>
+                        <a href="#" class="merch-image">
+                            <img src="images/merch/poster.png" alt="Постер">
+                        </a>
+                        <div class="triangle-selector triangle-bottom"></div>
+                        <div class="merch-info">
+                            <h3>Постер</h3>
+                            <p class="merch-description">Красивый постер с артом PSA Union</p>
+                            <p class="merch-price">от 300 ₽*</p>
+                        </div>
+                    </div>
+
+                    <div class="merch-card">
+                        <div class="triangle-selector"></div>
+                        <a href="#" class="merch-image">
+                            <img src="images/merch/baseball-cap.png" alt="Бейсболка">
+                        </a>
+                        <div class="triangle-selector triangle-bottom"></div>
+                        <div class="merch-info">
+                            <h3>Бейсболка</h3>
+                            <p class="merch-description">Классическая бейсболка с тройной строчкой</p>
+                            <p class="merch-price">от 450 ₽*</p>
+                        </div>
+                    </div>
+
+                    <div class="merch-card">
+                        <div class="triangle-selector"></div>
+                        <a href="#" class="merch-image">
+                            <img src="images/merch/stickers.png" alt="Набор стикеров">
+                        </a>
+                        <div class="triangle-selector triangle-bottom"></div>
+                        <div class="merch-info">
+                            <h3>Набор стикеров</h3>
+                            <p class="merch-description">Набор виниловых стикеров с разными видами</p>
+                            <p class="merch-price">от 150 ₽*</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="merch-cta">
+                    <h3>🚚 Доставка и оплата</h3>
+                    <p>Цена мерча может варьироваться в зависимости от количества заказа, способа доставки и региона.</p>
+                    <button id="delivery-info-btn" class="btn primary">Способы доставки и контакты</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer-container"></footer>
+
+    <!-- Модальное окно для доставки -->
+    <div id="delivery-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Доставка и оплата</h2>
+            
+            <div class="delivery-info">
+                <h3>Способы доставки</h3>
+                <ul class="delivery-list">
+                    <li>
+                        <strong>Личная встреча</strong><br>
+                        Самый экономичный вариант. Встречаемся в Москве или другом городе по договорённости.
+                    </li>
+                    <li>
+                        <strong>Почтовые отправления</strong><br>
+                        Отправляем через почту России. Стоимость доставки зависит от локации получателя и веса посылки.
+                    </li>
+                    <li>
+                        <strong>Курьерские службы</strong><br>
+                        Доступны служба доставки СДЭК, DeliveryClub и другие партнёры. Сроки и стоимость варьируются.
+                    </li>
+                </ul>
+
+                <h3>⚠️ Важно!</h3>
+                <p><strong>Цена мерча может варьироваться</strong> в зависимости от:</p>
+                <ul class="price-factors">
+                    <li>Количества заказываемого товара</li>
+                    <li>Способа доставки</li>
+                    <li>Региона доставки</li>
+                    <li>Текущего наличия товара</li>
+                </ul>
+
+                <h3>💬 Способы связи</h3>
+                <p>Для консультации и оформления заказа свяжитесь с нами через личные сообщения:</p>
+                <ul class="contact-methods">
+                    <li>📱 <strong>ВКонтакте:</strong> <a href="https://vk.com" target="_blank" rel="noopener noreferrer">перейти в ЛС группы</a></li>
+                    <li>💬 <strong>Telegram:</strong> <a href="https://t.me" target="_blank" rel="noopener noreferrer">написать в чат</a></li>
+                </ul>
+
+                <p class="delivery-note">Мы индивидуально подходим к каждому заказу и найдём оптимальное решение для вас!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/burger.js"></script>
+    <script src="scripts/componentLoader.js"></script>
+</body>
+</html>

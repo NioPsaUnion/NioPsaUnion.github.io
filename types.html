@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSA Union — Виды</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="header-container"></header>
+
+    <main>
+        <section id="types" class="active">
+            <div class="container">
+                <h2>Виды</h2>
+                <div class="species">
+                    <div class="species-card">
+                        <div class="triangle-selector"></div>
+                        <a href="species-1.html"><img src="images/types/2.png" alt="Персонаж 2"></a>
+                        <div class="triangle-selector triangle-bottom"></div>
+                    </div>
+                    <div class="species-card">
+                        <div class="triangle-selector"></div>
+                        <a href="species-2.html"><img src="images/types/2.png" alt="Персонаж 2"></a>
+                        <div class="triangle-selector triangle-bottom"></div>
+                    </div>
+                    <div class="species-card">
+                        <div class="triangle-selector"></div>
+                        <a href="species-3.html"><img src="images/types/2.png" alt="Персонаж 2"></a>
+                        <div class="triangle-selector triangle-bottom"></div>
+                    </div>
+                    <div class="species-card">
+                        <div class="triangle-selector"></div>
+                        <a href="species-4.html"><img src="images/types/2.png" alt="Персонаж 2"></a>
+                        <div class="triangle-selector triangle-bottom"></div>
+                    </div>
+                </div>
+                <!-- Здесь можно добавить подробности о каждом виде, если это отдельные страницы -->
+                <div id="species-1" class="species-detail" style="display:none;">
+                    <h3>Детали вида 1</h3>
+                    <p>Подробное описание вида 1...</p>
+                    <a href="types.html" class="back-link">← Назад к видам</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer-container"></footer>
+
+    <script src="scripts/burger.js"></script>
+    <script src="scripts/componentLoader.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSA Union — Статьи</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="header-container"></header>
+
+    <main>
+        <section id="articles" class="active">
+            <div class="container">
+                <div class="articles-header">
+                    <h2>Статьи</h2>
+                    <p class="articles-lead">Короткие заметки, визуальные дайджесты и обзоры миров — выбери, что читать.</p>
+                </div>
+                <div class="articles-grid">
+                    <a class="article-card" href="articles/stickers.html" aria-label="Стикеры с разными видами">
+                        <img src="images/articles/stickers-thumbnail.jpg" alt="Стикеры"> <!-- Добавьте реальное изображение -->
+                        <div class="article-meta">
+                            <span class="tag">Стикеры</span>
+                            <h3>Стикеры с разными видами в Телеграм!</h3>
+                        </div>
+                    </a>
+                    <a class="article-card" href="articles/suiters-rf.html" aria-label="Коллекция СНГ сьютеров">
+                        <img src="images/articles/suiters-rf-thumbnail.jpg" alt="Сьютеры РФ"> <!-- Добавьте реальное изображение -->
+                        <div class="article-meta">
+                            <span class="tag">Сьютеры</span>
+                            <h3>Коллекция СНГ сьютеров</h3>
+                        </div>
+                    </a>
+                    <a class="article-card" href="articles/members.html" aria-label="Личные сайты участников">
+                        <img src="images/articles/members-thumbnail.jpg" alt="Участники"> <!-- Добавьте реальное изображение -->
+                        <div class="article-meta">
+                            <span class="tag">Участники</span>
+                            <h3>Личные сайты</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer-container"></footer>
+
+    <script src="scripts/burger.js"></script>
+    <script src="scripts/componentLoader.js"></script>
+</body>
+</html>
